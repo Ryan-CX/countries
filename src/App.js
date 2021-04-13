@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+
+import List from './List';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [input, setInput] = useState('');
+
+	const handleInput = (e) => {
+		setInput(e.target.value);
+	};
+
+	return (
+		<div>
+			find countries
+			<input value={input} onChange={handleInput} />
+			<List query={input} />
+		</div>
+	);
 }
 
 export default App;
